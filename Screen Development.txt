@@ -1,0 +1,31 @@
+devarshi
+-----------
+User Registration
+Login Page  - this will have all information of how our system works.....remember we had seen those 3 images.
+change pwd
+ 
+Aron:
+------
+Browse Screen
+Displaying the movie page after browsing
+my queue page
+ 
+Illhan:
+-------
+MY accounts 
+Admin menu
+review page
+add view movie details
+ 
+Vinod:
+-------
+Movie management
+add cast
+Cast screen
+ 
+ 
+Snehal:
+-------
+Manage user
+Rent History
+Service plan 
