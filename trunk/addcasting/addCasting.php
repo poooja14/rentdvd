@@ -1,11 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Forgot Password</title>
-
-<script type="text/javascript" src="validateSignup.js"></script>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>Untitled Document</title> 
 <style type="text/css"> 
 <!-- 
 body  {
@@ -16,7 +13,7 @@ body  {
 	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
 	color: #000000;
 }
-
+ 
 /* Tips for Elastic layouts 
 1. Since the elastic layouts overall sizing is based on the user's default fonts size, they are more unpredictable. Used correctly, they are also more accessible for those that need larger fonts size since the line length remains proportionate.
 2. Sizing of divs in this layout are based on the 100% font size in the body element. If you decrease the text size overall by using a font-size: 80% on the body element or the #container, remember that the entire layout will downsize proportionately. You may want to increase the widths of the various divs to compensate for this.
@@ -37,7 +34,7 @@ body  {
 	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
 	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
 }
-
+ 
 /* Tips for sidebar1:
 1. Be aware that if you set a font-size value on this div, the overall width of the div will be adjusted accordingly.
 2. Since we are working in ems, it's best not to use padding on the sidebar itself. It will be added to the width for standards compliant browsers creating an unknown actual width. 
@@ -53,7 +50,7 @@ body  {
 	margin-left: 10px; /* the left and right margin should be given to every element that will be placed in the side columns */
 	margin-right: 10px;
 }
-
+ 
 /* Tips for mainContent:
 1. If you give this #mainContent div a font-size value different than the #sidebar1 div, the margins of the #mainContent div will be based on its font-size and the width of the #sidebar1 div will be based on its font-size. You may wish to adjust the values of these divs.
 2. The space between the mainContent and sidebar1 is created with the left margin on the mainContent div.  No matter how much content the sidebar1 div contains, the column space will remain. You can remove this left margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends.
@@ -71,7 +68,7 @@ body  {
 	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
 	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
 }
-
+ 
 /* Miscellaneous classes for reuse */
 .fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
 	float: right;
@@ -95,61 +92,77 @@ body  {
 .twoColElsLtHdr #mainContent { zoom: 1; padding-top: 15px; }
 /* the above proprietary zoom property gives IE the hasLayout it needs to avoid several bugs */
 </style>
-<![endif]-->
-<link href="labelfont.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body class="twoColElsLtHdr">
-<div id="container">
-  <div id="header">
-    <h3>Forgot Password</h3>
-  <!-- end #header --></div>
-  <div class="labelfont" id="mainContent">
-  <p align="right"><font style="Arial" size=2><a href="JavaScript:history.back();">Back</a></font></p>
+<![endif]--> 
+<link href="labelfont.css" rel="stylesheet" type="text/css" /> 
+</head> 
+ 
+<body class="twoColElsLtHdr"> 
+ 
+<div id="container"> 
+  <div id="header"> 
+    <h3>Add Casting</h3> 
+  <!-- end #header --></div> 
+  <div class="labelfont" id="mainContent"> 
     <h1>&nbsp;</h1> 
-    <form id="password_reset" name="password_reset" method="post" action="resetForgotPwd.php">
-    <p>Email:</p>        
-	<?php
-
-		include 'dbconn.php';
-
-		$custinfo = mysql_query("select email,security_qs from customer where (email = '" . $_POST['email'] . "')",$db);
-
-		if ($row = mysql_fetch_array($custinfo)){
-			echo '<input name="email" id="email" size=50 value="',$row['email'],'" readonly>';
-			echo '<p>Security Question:</p>';
-			echo '<input name="sec_qs" id="sec_qs" size=50 value="',$row['security_qs'],'" readonly>';			
-		}
-		else{		
-			header("Location: forgotPwd.php");		
-		}
-
-		mysql_close($db);
-	?>
-    <p>Security Answer:</p>
-      <label>
-        <input type="password" name="sec_ans" id="sec_ans" />
-      </label>
-	   <p>New Password:</p>
-      <label>
-        <input type="password" name="new_password" id="new_password" />
-      </label>
-    <p>&nbsp;</p>
-      <label>
-        <input type="submit" name="save" id="save" value="Submit" onClick="return validatePwd(this.form.new_password,this.form.new_password);"/>
-      </label>
-
-</form>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-  <!-- end #mainContent --></div>
-   <!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats --><br class="clearfloat" />
-   <div id="footer">
-    <p>Copyright: RentIT Co.</p>	
-  <!-- end #footer --></div>
-<!-- end #container --></div>
-</body>
-</html>
-
+    
+    <form id="form2" name="form2" method="post" action=""> 
+      <label> 
+        <select name="castname" id="castname"> 
+          <option>Cast Name</option> 
+        </select> 
+      </label> 
+    </form> 
+    <form id="form10" name="form10" method="post" action=""> 
+      <label> 
+    <select name="role" id="role"> 
+      <option>Role</option> 
+    </select> 
+  </label> 
+</form> 
+<form id="form11" name="form11" method="post" action=""> 
+  <label> 
+    <input type="submit" name="submit_cast" id="submit_cast" value="Submit" /> 
+  </label> 
+</form> 
+<center> 
+<p>&nbsp;</p> 
+<table width="459" border="1" align="default" cellpadding="0" cellspacing="0"> 
+  <tr> 
+    <td width="49" class="labelfont"><strong>Select </strong></td> 
+    <td width="216"><strong>Cast Name </strong></td> 
+    <td width="186"><strong>Role</strong></td> 
+    </tr> 
+  <tr> 
+    <td><form id="form4" name="form4" method="post" action=""> 
+      <label> 
+        <input type="checkbox" name="update_delete" id="update_delete" /> 
+      </label> 
+    </form></td> 
+    <td>&nbsp;</td> 
+    <td><form id="form3" name="form3" method="post" action=""> 
+      <label> 
+        <select name="role2" id="role2"> 
+          <option>Select Role</option> 
+          </select> 
+        </label> 
+    </form></td> 
+    </tr> 
+</table> 
+<form id="form12" name="form12" method="post" action=""> 
+  <label> 
+    <input  type="submit" name="add" id="add" value="Add" /> 
+  </label> 
+  <input type="submit" name="delete" id="delete" value="Delete" /> 
+  <input type="submit" name="cancel" id="cancel" value="Cancel" /> 
+</form> 
+</center> 
+<p>&nbsp;</p> 
+<p></p> 
+    <p>&nbsp;</p> 
+  </div> 
+  <div id="footer"> 
+    <p>Footer</p> 
+  <!-- end #footer --></div> 
+<!-- end #container --></div> 
+</body> 
+</html> 
