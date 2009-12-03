@@ -2,10 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Forgot Password</title>
-
-<script type="text/javascript" src="validateSignup.js"></script>
-
+<title>Untitled Document</title>
 <style type="text/css"> 
 <!-- 
 body  {
@@ -100,56 +97,68 @@ body  {
 </head>
 
 <body class="twoColElsLtHdr">
-<div id="container">
+
+<div class="labelfont" id="container">
   <div id="header">
-    <h3>Forgot Password</h3>
+  		<?php
+	/*		session_start();
+			if(isset($_SESSION['email'])){
+				$user=$_SESSION['email'];
+				echo "Welcome :".$user;
+			}
+			else{
+				$_SESSION['errLogin'] = "Session expired: Please login again!";
+				header('Location: loginpage.php');
+			}*/
+		?>
+    <h3>Add Movie Review</h3>
   <!-- end #header --></div>
   <div class="labelfont" id="mainContent">
-  <p align="right"><font style="Arial" size=2><a href="JavaScript:history.back();">Back</a></font></p>
-    <h1>&nbsp;</h1> 
-    <form id="password_reset" name="password_reset" method="post" action="resetForgotPwd.php">
-    <p>Email:</p>        
-	<?php
-
-		include 'dbconn.php';
-
-		$custinfo = mysql_query("select email,security_qs from customer where (email = '" . $_POST['email'] . "')",$db);
-
-		if ($row = mysql_fetch_array($custinfo)){
-			echo '<input name="email" id="email" size=50 value="',$row['email'],'" readonly>';
-			echo '<p>Security Question:</p>';
-			echo '<input name="sec_qs" id="sec_qs" size=50 value="',$row['security_qs'],'" readonly>';			
-		}
-		else{		
-			header("Location: forgotPwd.php");		
-		}
-
-		mysql_close($db);
-	?>
-    <p>Security Answer:</p>
-      <label>
-        <input type="password" name="sec_ans" id="sec_ans" />
-      </label>
-	   <p>New Password:</p>
-      <label>
-        <input type="password" name="new_password" id="new_password" />
-      </label>
+    <h1>&nbsp;</h1>
+    <h1 class="labelfont">Movie Title:--------------------</h1>
+    <p>Movie Reviews</p>
+    <form id="form1" name="form1" method="post" action="add_movie_review.php">
+      <p>
+        <label>
+          <textarea name="addreview" id="addreview" cols="45" rows="5"></textarea>
+          <br />
+          <br />
+          <br />
+          Rating:<br />
+          <br />
+        </label>
+        <select name="rating" id="rating">
+          <option>rating</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+      </p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>
+        <input type="submit" name="submit" id="submit" value="Submit" />
+        <input type="submit" name="reset" id="reset" value="Reset" />
+        <input type="submit" name="back" id="back" value="Back" />
+      </p>
+    </form>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
     <p>&nbsp;</p>
-      <label>
-        <input type="submit" name="save" id="save" value="Submit" onClick="return validatePwd(this.form.new_password,this.form.new_password);"/>
-      </label>
-
-</form>
     <p>&nbsp;</p>
+<p></p>
     <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-  <!-- end #mainContent --></div>
-   <!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats --><br class="clearfloat" />
-   <div id="footer">
-    <p>Copyright: RentIT Co.</p>	
-  <!-- end #footer --></div>
+  </div>
+  <div id="footer">
+        <p>Team Members: <a href="mailto:honglu@indiana.edu">Aaron Honghao Lu</a>  |  <a href="mailto:dghoshal@umail.iu.edu">Devarshi Goshal</a>  |  <a href="mailto:ikeklik@umail.iu.edu">Ilhan Keklik</a>  |  <a href="mailto:srpatil@umail.iu.edu">Snehal Patil</a>  |  <a href="mailto:vperiasa@indiana.edu">Vinod Periasamy</a></p>
+</div>
 <!-- end #container --></div>
 </body>
 </html>
-

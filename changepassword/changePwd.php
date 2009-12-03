@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Forgot Password</title>
+<title>Change Password</title>
 
 <script type="text/javascript" src="validateSignup.js"></script>
 
@@ -102,44 +102,36 @@ body  {
 <body class="twoColElsLtHdr">
 <div id="container">
   <div id="header">
-    <h3>Forgot Password</h3>
+    <h3>Change Password</h3>
   <!-- end #header --></div>
   <div class="labelfont" id="mainContent">
   <p align="right"><font style="Arial" size=2><a href="JavaScript:history.back();">Back</a></font></p>
-    <h1>&nbsp;</h1> 
-    <form id="password_reset" name="password_reset" method="post" action="resetForgotPwd.php">
-    <p>Email:</p>        
-	<?php
-
-		include 'dbconn.php';
-
-		$custinfo = mysql_query("select email,security_qs from customer where (email = '" . $_POST['email'] . "')",$db);
-
-		if ($row = mysql_fetch_array($custinfo)){
-			echo '<input name="email" id="email" size=50 value="',$row['email'],'" readonly>';
-			echo '<p>Security Question:</p>';
-			echo '<input name="sec_qs" id="sec_qs" size=50 value="',$row['security_qs'],'" readonly>';			
-		}
-		else{		
-			header("Location: forgotPwd.php");		
-		}
-
-		mysql_close($db);
-	?>
-    <p>Security Answer:</p>
+    <h1>&nbsp;</h1>    
+    <form id="password_reset" name="password_reset" method="post" action="resetPwd.php">
+	<p>Email:</p>
       <label>
-        <input type="password" name="sec_ans" id="sec_ans" />
+        <input type="text" name="email" id="email" />
       </label>
-	   <p>New Password:</p>
+	<p>Old Password:</p>
+      <label>
+        <input type="password" name="old_password" id="old_password" />
+      </label>
+    <p>New Password:</p>
       <label>
         <input type="password" name="new_password" id="new_password" />
       </label>
+    <p>Confirm New Password:</p>
+      <label>
+        <input type="password" name="confirm_new_password" id="confirm_new_password" />
+      </label>
     <p>&nbsp;</p>
       <label>
-        <input type="submit" name="save" id="save" value="Submit" onClick="return validatePwd(this.form.new_password,this.form.new_password);"/>
+        <input type="submit" name="save" id="save" value="Change" onClick="return validatePwd(this.form.new_password,this.form.confirm_new_password);"/>
       </label>
-
-</form>
+      <label>
+        <input type="submit" name="clear" id="clear" value="Clear" />
+      </label>
+    </form>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
@@ -152,4 +144,3 @@ body  {
 <!-- end #container --></div>
 </body>
 </html>
-
