@@ -1,0 +1,1 @@
+This is not the addmoviedetails page. Vinod is working on that.
