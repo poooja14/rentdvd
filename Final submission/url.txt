@@ -1,0 +1,3 @@
+for the user: http://www.cs.indiana.edu/cgi-pub/dghoshal/rentIt/
+
+for the admin: http://www.cs.indiana.edu/cgi-pub/dghoshal/admin/
